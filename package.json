@@ -21,6 +21,7 @@
     "agraddy.test.tap": "^0.2.0"
   },
   "dependencies": {
-    "agraddy.drop.hbs": "^0.2.0"
+    "agraddy.drop.hbs": "^0.2.0",
+    "agraddy.luggage": "^0.2.0"
   }
 }

@@ -7,6 +7,7 @@ var res = response();
 var res2 = response();
 var res3 = response();
 var res4 = response();
+var res5 = response();
 var lug = {};
 
 process.chdir('test');
@@ -63,5 +64,24 @@ lug.vault.data.title = 'HBS';
 	});
 
 	routes['^/handle/regex(/\\d+)$']({url: '/handle/regex/3'}, res4);
+})();
+
+// Deep merge working
+(function() {
+	function deepVault(req, res, lug, cb) {
+		lug.vault = {};
+		lug.vault.data = {};
+		lug.vault.data.deep = 'DEEP';
+		cb();
+	}
+
+	// Combine lug.vault with the lug from luggage
+	hbs(routes, '/deep', [deepVault], lug.vault);
+
+	res5.on('finish', function() {
+		tap.assert.equal(res5._body, '-HBS/DEEP-\n', 'Should do a deep merge.');
+	});
+
+	routes['/deep']({}, res5);
 })();
 

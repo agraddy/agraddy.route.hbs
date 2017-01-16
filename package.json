@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "agraddy.drop.hbs": "^0.2.0",
-    "agraddy.luggage": "^0.2.0",
+    "agraddy.luggage": "^0.3.0",
     "deepmerge": "^1.3.1"
   }
 }
